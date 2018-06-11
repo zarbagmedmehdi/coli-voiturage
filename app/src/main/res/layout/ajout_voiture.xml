@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:layout_editor_absoluteY="23dp"
+    tools:context=".ConducteurInscriptionActivity"
+    >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="328dp"
+        android:layout_height="517dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/test"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325">
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="19dp"
+            tools:layout_editor_absoluteY="32dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:text="Ajouter Votre première véhicule: "
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+
+                    app:fontFamily="@font/lily_script_one" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/nomUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="5dp"
+                    android:textColor="@color/black" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ccvoiture"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/matricule"
+                    android:layout_width="172dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/allerta"
+                    android:text="matricule:"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <EditText
+                        android:id="@+id/matriculeInput1"
+                        android:layout_width="133dp"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                    <EditText
+                        android:id="@+id/matriculeInput2"
+                        android:layout_width="71dp"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:inputType="text|textMultiLine" />
+
+                    <EditText
+                        android:id="@+id/matriculeInput3"
+                        android:layout_width="133dp"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:inputType="number" />
+
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/marque"
+                    android:layout_width="240dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/allerta"
+                    android:text="marque :"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <Spinner
+                    android:id="@+id/marqueSpinner"
+                    android:layout_width="194dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/test"
+                    android:entries="@array/marque_array"
+                    android:popupBackground="@drawable/test"
+
+                    android:prompt="@string/promptMarque"
+                    android:spinnerMode="dialog" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/couleur"
+                    android:layout_width="240dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/allerta"
+                    android:text="couleur :"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <Spinner
+                    android:id="@+id/couleurSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/test"
+                    android:entries="@array/couleur_array"
+                    android:popupBackground="@drawable/test"
+                    android:prompt="@string/promptCouleur"
+                    android:spinnerMode="dialog" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/typeVehicule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/allerta"
+                    android:text="typeVehicule:"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+            </TableRow>
+
+        </TableLayout>
+
+    </FrameLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="317dp"
+        android:layout_height="139dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout1"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:requiresFadingEdge="none">
+
+                <RadioButton
+                    android:id="@+id/r1"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="voiture" />
+
+                <RadioButton
+                    android:id="@+id/r2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="camionnette" />
+
+                <RadioButton
+                    android:id="@+id/r3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="camion" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:srcCompat="@mipmap/car"
+                    tools:layout_editor_absoluteX="30dp" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@mipmap/van" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:srcCompat="@mipmap/truck"
+                    tools:layout_editor_absoluteX="241dp" />
+
+            </LinearLayout>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <TextView
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/allerta"
+                android:text="@string/photo_vehicule"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <LinearLayout
+                android:id="@+id/layout_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageButton
+                        android:id="@+id/btnChoose"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/test2"
+                        android:src="@drawable/add_photo"
+                        android:text="Choose" />
+
+                    <ImageButton
+                        android:id="@+id/btnUpload"
+                        android:layout_width="40dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/test2"
+                        android:src="@drawable/cloud_upload"
+                        android:text="Upload" />
+
+                    <ImageView
+                        android:id="@+id/imgView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:maxHeight="60dp"
+                        android:maxWidth="62dp"
+                        android:scaleType="fitCenter" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/addCar"
+
+        android:layout_width="192dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="160dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/test2"
+        android:onClick="addCar1"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout2"
+        app:srcCompat="@mipmap/addcar" />
+</android.support.constraint.ConstraintLayout>

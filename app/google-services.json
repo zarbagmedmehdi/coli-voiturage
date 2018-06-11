@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "224123394305",
+    "firebase_url": "https://colisvoiturage-205911.firebaseio.com",
+    "project_id": "colisvoiturage-205911",
+    "storage_bucket": "colisvoiturage-205911.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224123394305:android:a8aa57cb3a1db79f",
+        "android_client_info": {
+          "package_name": "com.application.zarbagaskazay.colivoiturage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224123394305-v6ivb3d7fltspu6of2f9ec14b8kjgkkt.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "224123394305-v6ivb3d7fltspu6of2f9ec14b8kjgkkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmKxmZKKMePEQGPXbAdkXz4-tKyARsl0Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

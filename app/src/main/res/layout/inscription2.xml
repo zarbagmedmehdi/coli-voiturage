@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:layout_editor_absoluteY="23dp"
+    tools:context=".InscriptionActivity"
+   >
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="124dp"
+        android:text=" "
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:fontFamily="@font/allerta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="322dp"
+        android:layout_height="219dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="168dp"
+        android:background="@drawable/test"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/back2"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="154dp"
+            android:onClick="back"/>
+
+        <ImageView
+            android:id="@+id/imageView11"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@mipmap/logo" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:text="@string/qui"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="23dp"
+            app:fontFamily="@font/allerta" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:text="@string/expediteur"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="23dp"
+            app:fontFamily="@font/allerta" />
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:text="@string/conducteur"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="23dp"
+            app:fontFamily="@font/allerta" />
+
+
+        <ImageButton
+            android:id="@+id/conducteurButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            app:srcCompat="@mipmap/conducteur"
+            android:onClick="inscription"/>
+
+
+        <ImageButton
+            android:id="@+id/expediteurButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            app:srcCompat="@mipmap/expediteur"
+            android:onClick="inscription"/>
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LancerAlertActivity"
+    tools:showIn="@layout/activity_lancer_alert">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/test"
+
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="25dp"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="32dp">
+
+
+        <TableRow
+            android:layout_width="291dp"
+            android:layout_height="21dp">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="  Lancer une alerte "
+                android:textColor="@color/black"
+                android:textSize="35dp"
+                app:fontFamily="@font/lily_script_one" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="364dp"
+            android:layout_height="30dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="  Veuillez saisir les données du trajet souhaité :"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:fontFamily="@font/lily_script_one" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/villeDepart"
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="   Ville départ     :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/VilleDepartSpinner"
+                android:layout_width="194dp"
+                android:layout_height="40dp"
+                android:background="@drawable/test"
+                android:entries="@array/ville_array"
+                android:popupBackground="@drawable/test"
+
+                android:spinnerMode="dialog" />
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="6dp">
+
+            <TextView
+                android:id="@+id/villeDarrivée"
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="   Ville d'arrivée :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/villeDarriveeSpinner"
+                android:layout_width="194dp"
+                android:layout_height="40dp"
+                android:background="@drawable/test"
+                android:entries="@array/ville_array"
+
+                android:popupBackground="@drawable/test"
+
+                android:spinnerMode="dialog" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:onClick="showMap"
+                android:text="Button" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="6dp">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="   date départ :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/datedepart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="entrer une  date" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="6dp">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="   date d'arrivée :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/dateDarrivee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="entrer une Date" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="6dp">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="   temps départ :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/tempsdepart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="entrer un temps" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="6dp">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="  temps d'arrivée :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/tempsDarrivee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="entrer un temps" />
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Detail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:text="Details du colis"
+                android:textColor="@color/black"
+                android:textSize="35dp"
+                app:fontFamily="@font/lily_script_one" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="364dp"
+            android:layout_height="30dp">
+
+            <TextView
+                android:id="@+id/cc"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="  Veuillez saisir les données du trajet souhaité :"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                app:fontFamily="@font/lily_script_one" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gammeColis"
+                android:layout_width="240dp"
+                android:layout_height="35dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="Dimensions et poids"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="5dip">
+
+            <EditText
+                android:id="@+id/hauteur"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="  h :cm³ "
+                android:inputType="numberDecimal"
+                android:textColorHint="@color/black" />
+
+            <EditText
+                android:id="@+id/largeur"
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="l:cm³"
+                android:inputType="numberDecimal"
+
+                android:textColorHint="@color/black" />
+
+            <EditText
+                android:id="@+id/longuer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="L:cm³"
+                android:inputType="numberDecimal"
+
+                android:selectAllOnFocus="false"
+                android:textColorHint="@color/black" />
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="poids   :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/poids"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textColorHint="@color/black" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="description    :"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/allerta"
+                android:text="prix proposé :"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/prixInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/lancerAlerte"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_weight="2"
+                android:onClick="lancerAlerte"
+                android:text="Lancer Alerte" />
+        </TableRow>
+
+    </TableLayout>
+
+</android.support.v4.widget.NestedScrollView>

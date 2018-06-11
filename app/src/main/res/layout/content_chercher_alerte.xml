@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="568dp"
+        android:layout_marginTop="56dp"
+        android:background="@mipmap/background"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ListView
+            android:id="@+id/list_view"
+            style="@android:style/Widget.ListView"
+            android:layout_width="369dp"
+            android:layout_height="331dp"
+            android:layout_gravity="center|bottom"
+
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="247dp">
+
+        </ListView>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="19dp"
+            tools:layout_editor_absoluteY="32dp">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/villeDepart"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/allerta"
+                    android:text="   Ville départ     :"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <Spinner
+                    android:id="@+id/villeDepartSpinner"
+                    android:layout_width="194dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/test"
+                    android:entries="@array/ville_array"
+                    android:popupBackground="@drawable/test"
+
+                    android:spinnerMode="dialog" />
+
+
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/villeDarrivée"
+                    android:layout_width="240dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/allerta"
+                    android:text="   Ville d'arrivée :"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <Spinner
+                    android:id="@+id/villeDarriveeSpinner"
+                    android:layout_width="194dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/test"
+                    android:entries="@array/ville_array"
+
+                    android:popupBackground="@drawable/test"
+
+                    android:spinnerMode="dialog" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/datedepart"
+                        android:layout_width="191dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="date de depart" />
+
+                    <Button
+                        android:id="@+id/tempsdepart"
+                        android:layout_width="191dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="temps de depart" />
+                </LinearLayout>
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="169dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="poids min et max (KG)    "
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="volume min et max (cm³)  "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="5dip">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/poidsMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="poids min"
+                        android:inputType="numberDecimal" />
+
+                    <EditText
+                        android:id="@+id/poidsMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="poids max"
+                        android:inputType="numberDecimal" />
+
+                    <EditText
+                        android:id="@+id/volumeMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="volume max"
+                        android:inputType="numberDecimal" />
+
+                    <EditText
+                        android:id="@+id/volumeMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="volume max"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
+
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/afficherResultat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="afficher les resultas"
+                        android:onClick="afficherResultat"/>
+
+                    <Button
+                        android:id="@+id/afficherTout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="afficher tout"
+                        android:onClick="afficherTout"/>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
