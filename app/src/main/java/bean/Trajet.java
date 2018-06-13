@@ -2,14 +2,13 @@ package bean;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Date;
 
 public class Trajet implements Serializable {
     private static final long serialVersionUID  =1L;
     private Long id;
     private Conducteur conducteur;
-    private Date date_dep;
-    private Date date_arr;
+    private String date_dep;
+    private String date_arr;
     private Time heure_dep;
     private Time heure_arr;
     private String villeDep;
@@ -80,19 +79,19 @@ public class Trajet implements Serializable {
         this.conducteur = conducteur;
     }
 
-    public Date getDate_dep() {
+    public String getDate_dep() {
         return date_dep;
     }
 
-    public void setDate_dep(Date date_dep) {
+    public void setDate_dep(String date_dep) {
         this.date_dep = date_dep;
     }
 
-    public Date getDate_arr() {
+    public String getDate_arr() {
         return date_arr;
     }
 
-    public void setDate_arr(Date date_arr) {
+    public void setDate_arr(String date_arr) {
         this.date_arr = date_arr;
     }
 

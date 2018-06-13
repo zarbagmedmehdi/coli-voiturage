@@ -3,11 +3,9 @@ package com.application.zarbagaskazay.colivoiturage;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -38,8 +36,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import Adapter.AdapterTagSpinnerItem;
-import Adapter.TagListSimpleSearch;
 import Util.DateUtil;
 import WebService.util.RESTDateParam;
 import WebService.util.UrlClass;
@@ -286,8 +282,8 @@ public class TrajetActivity extends AppCompatActivity {
         Trajet trajet = new Trajet();
         trajet.setVilleDep(activityHelper.spinnerText(villeDepart));
         trajet.setVilleArr(activityHelper.spinnerText(villeDarrivée));
-        trajet.setDate_dep(departDate.getDate());
-        trajet.setDate_arr(arriveeDate.getDate());
+//        trajet.setDate_dep(departDate.getDate());
+//        trajet.setDate_arr(arriveeDate.getDate());
         //trajet.setHeure_dep(timedepart);
         // trajet.setHeure_arr(timeArrivee);
 

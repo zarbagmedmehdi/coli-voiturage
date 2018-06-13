@@ -12,9 +12,11 @@ public class UrlClass {
   public  final String distanceUrl=ipGoogleMap+"distancematrix/json?";
 
     ActivityHelper helper = new ActivityHelper();
-   // public final String ip = "http://192.168.1.4/";
+     public final String ip = "http://192.168.1.3/";
+
+    // public final String ip = "http://192.168.1.4/";
     //public final String ip="http://192.168.1.10/";
-    private final String ip = "http://192.168.43.177/";
+   // private final String ip = "http://192.168.43.177/";
 
     public final String urlInscription = ip + "api/api/all/inscription";
     public final String urlAddVoiture = ip + "api/api/ajout/voiture";
@@ -27,11 +29,15 @@ public class UrlClass {
     public final String urlAddAlerte = ip + "api/api/ajout/alerte";
     public final String urlAllAlerte = ip + "api/api/all/alerte";
     public final String urlFindAlertes = ip + "api/api/chercher/alerte";
-
+    public final String urlMesAlerte=ip+"api/api/find/mesAlertes?id_e=8";
     public final String urlAddNewTrajet = ip + "api/api/lancer/trajet";
     public final String urlExpediteurProfile = ip + "api/api/find/getInfoExpediteur?id=8";
     public final String urlFindAdresse = ip + "api/api/find/adresseVille";  //?nomVille=MARRAKECH
-    public final String urlMesAlerte=ip+"api/api/find/mesAlertes?id_e=8";
+
+
+    public final String urlFindTrajets = ip +"api/api/chercher/trajet";
+    public final String urlAllTrajet = ip +"api/api/all/trajet";
+    public final String urlMesTrajets= ip +"api/api/find/mesTrajets?id=1";
 }
 
 
