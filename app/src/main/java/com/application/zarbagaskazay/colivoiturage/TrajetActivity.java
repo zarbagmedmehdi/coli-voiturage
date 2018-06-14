@@ -1,16 +1,22 @@
 package com.application.zarbagaskazay.colivoiturage;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -55,9 +61,18 @@ public class TrajetActivity extends AppCompatActivity {
     EditText adresseDepart;
     EditText adresseArrivee;
 
+    /////////////////
+    Button mOrder;
+    TextView mItemSelected;
+    String[] listItems;
+    boolean[] checkedItems;
+    ArrayList<Integer> mUserItems = new ArrayList<>();
+    //RadioButton
+    RadioGroup adrDepart, adrArrivée;
+    //////////////////////////////
 
 
-    VilleService villeService=new VilleService();
+    VilleService villeService = new VilleService();
     private DatePickerDialog.OnDateSetListener mDateSetListenerDepart;
     private DatePickerDialog.OnDateSetListener mDateSetListenerArrivee;
     private TimePickerDialog.OnTimeSetListener mDateSetListenerTime1;
@@ -73,37 +88,92 @@ public class TrajetActivity extends AppCompatActivity {
     RESTDateParam departDate, arriveeDate;
     ArrayList<Adresse> list1;
     ArrayList<Adresse> list2;
-    ArrayAdapter<Adresse> adp1,adp2;
+    ArrayAdapter<Adresse> adp1, adp2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trajet);
+        setContentView(R.layout.activity_trajet2);
         villeDepart = (Spinner) findViewById(R.id.villeDepart);
         villeDarrivée = (Spinner) findViewById(R.id.villeDarrivée);
         villeEtapes = (Spinner) findViewById(R.id.villeDetapes);
 //        adresseDepart = findViewById(R.id.adresseDepart);
 //        adresseArrivee = findViewById(R.id.adresseArrivee);
+        //////////////
+        mOrder = (Button) findViewById(R.id.btnOrder);
+        mItemSelected = (TextView) findViewById(R.id.villesSelected);
+        listItems = getResources().getStringArray(R.array.ville_array);
+        checkedItems = new boolean[listItems.length];
+        adrDepart = (RadioGroup) findViewById(R.id.adresse_dep);
+        adrArrivée = (RadioGroup) findViewById(R.id.adresse_arr);
+        ////////////////////////////////
+        mOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(TrajetActivity.this, R.style.MyDialogTheme);
+
+                mBuilder.setTitle("ville D'etape");
+                mBuilder.setMultiChoiceItems(listItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
+//                        if (isChecked) {
+//                            if (!mUserItems.contains(position)) {
+//                                mUserItems.add(position);
+//                            }
+//                        } else if (mUserItems.contains(position)) {
+//                            mUserItems.remove(position);
+//                        }
+                        if (isChecked) {
+                            mUserItems.add(position);
+                        } else {
+                            mUserItems.remove((Integer.valueOf(position)));
+                        }
+                    }
+                });
+
+                mBuilder.setCancelable(false);
+                mBuilder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        String item = "";
+                        for (int i = 0; i < mUserItems.size(); i++) {
+                            item = item + listItems[mUserItems.get(i)];
+                            if (i != mUserItems.size() - 1) {
+                                item = item + ", ";
+                            }
+                        }
+                        mItemSelected.setText(item);
+                    }
+                });
+
+                mBuilder.setNegativeButton("sortir", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                mBuilder.setNeutralButton("clear ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        for (int i = 0; i < checkedItems.length; i++) {
+                            checkedItems[i] = false;
+                            mUserItems.clear();
+                            mItemSelected.setText("");
+                        }
+                    }
+                });
+
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
+            }
+        });
 
         button_tracer = (Button) findViewById(R.id.btn_tracer);
         button_tracer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(TrajetActivity.this);
-//                View mapView = getLayoutInflater().inflate(R.layout.activity_maps, null);
-//                Button btn = (Button) mapView.findViewById(R.id.button);
-//                btn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // openDialog();
-//                    }
-//                });
-//                builder.setView(mapView);
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
-                System.out.println("cccccccc  zine ha adressses");
-                getAdresse();
-                System.out.println("cccccccc  zine ha adressses");
+//
             }
         });
         datedepart = (Button) findViewById(R.id.datedepart);
@@ -114,6 +184,30 @@ public class TrajetActivity extends AppCompatActivity {
             }
         });
 
+        villeDepart.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+               getAdresse(villeDepart,adrDepart);
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+
+
+        villeDarrivée.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                getAdresse(villeDarrivée,adrArrivée);
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
         mDateSetListenerDepart = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -190,15 +284,7 @@ public class TrajetActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-}
-
-
+    }
 
 
     public void onClickDatePickerHelper(DatePickerDialog.OnDateSetListener mDateSetListener) {
@@ -223,60 +309,57 @@ public class TrajetActivity extends AppCompatActivity {
     // }
 
 
-
-
-
-
-
-
-
-    public void getAdresse() {
+    public void getAdresse(Spinner spinner , final RadioGroup radioGroup) {
         JSONObject jsonObject = new JSONObject();
 
-       try {
+        try {
 //String urls=url.urlFindAdresse+"?nomVille="+activityHelper.spinnerText(villeDepart);
-            jsonObject.put("nom" , activityHelper.spinnerText(villeDepart));
+            jsonObject.put("nom", activityHelper.spinnerText(spinner));
 
 
             System.out.println(jsonObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-            final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, url.urlFindAdresse
-                    , jsonObject,
-                    new Response.Listener<JSONObject>() {
+        final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, url.urlFindAdresse
+                , jsonObject,
+                new Response.Listener<JSONObject>() {
 
-                        @Override
-                        public void onResponse(JSONObject response) {
-
-
-                            if (response.has("data") && !response.isNull("data")) {
-
-                                ArrayList<Adresse>adresses=villeService.populate(response);
-                                System.out.println(adresses);
-                            } else {
+                    @Override
+                    public void onResponse(JSONObject response) {
 
 
-                                System.out.println(" rah liste khawya");
+                        if (response.has("data") && !response.isNull("data")) {
 
-                            }
-                        }
+                            ArrayList<Adresse> adresses = villeService.populate(response);
+                            for (int i = 0; i < adresses.size(); i++) {
+                                ((RadioButton) radioGroup.getChildAt(i)).setText(adresses.get(i).getNom());
+                                }
 
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            System.out.println("onerrorMessage" + error.getMessage() + " <-");
-                            error.printStackTrace();
-                            Log.e("ServiceCall", error.toString());
-                            System.out.println();
+
+                        } else {
+
+
+                            System.out.println(" rah liste khawya");
 
                         }
-                    });
+                    }
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("onerrorMessage" + error.getMessage() + " <-");
+                        error.printStackTrace();
+                        Log.e("ServiceCall", error.toString());
+                        System.out.println();
+
+                    }
+                });
         System.out.println(jsonObjReq.getBodyContentType());
-            VolleySingleton.getInstance(TrajetActivity.this).addToRequestQueue(jsonObjReq);
+        VolleySingleton.getInstance(TrajetActivity.this).addToRequestQueue(jsonObjReq);
 
-        }
+    }
 
     public JSONObject createTrajet() {
         Trajet trajet = new Trajet();
@@ -348,7 +431,7 @@ public class TrajetActivity extends AppCompatActivity {
                             try {
                                 int result = response.getInt("result");
                                 if (result == 1) {
-                                //    int idTrajet = response.getInt("id");
+                                    //    int idTrajet = response.getInt("id");
 
                                 }
 

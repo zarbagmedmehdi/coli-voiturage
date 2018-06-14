@@ -16,7 +16,7 @@ public class UrlClass {
 
     // public final String ip = "http://192.168.1.4/";
     //public final String ip="http://192.168.1.10/";
-   // private final String ip = "http://192.168.43.177/";
+  //  private final String ip = "http://192.168.43.177/";
 
     public final String urlInscription = ip + "api/api/all/inscription";
     public final String urlAddVoiture = ip + "api/api/ajout/voiture";
@@ -37,7 +37,8 @@ public class UrlClass {
 
     public final String urlFindTrajets = ip +"api/api/chercher/trajet";
     public final String urlAllTrajet = ip +"api/api/all/trajet";
-    public final String urlMesTrajets= ip +"api/api/find/mesTrajets?id=1";
+    public final String urlMesTrajets= ip +"api/api/find/mesTrajets?id_c=1";
+    public final String urlDeleteTrajet=ip+"api/api/delete/trajet";
 }
 
 

@@ -43,4 +43,8 @@
     </style>
 
     <style name="testTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/cc</item>
+    </style>
 </resources>

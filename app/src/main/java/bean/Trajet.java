@@ -5,7 +5,7 @@ import java.sql.Time;
 
 public class Trajet implements Serializable {
     private static final long serialVersionUID  =1L;
-    private Long id;
+    private int id;
     private Conducteur conducteur;
     private String date_dep;
     private String date_arr;
@@ -34,7 +34,7 @@ public class Trajet implements Serializable {
         this.trajetVilleDetape = trajetVilleDetape;
     }
 
-    public Trajet(Long id, Vehicule vehicule, String description, float poidsRest, float volumeRest) {
+    public Trajet(int id, Vehicule vehicule, String description, float poidsRest, float volumeRest) {
         this.id = id;
         this.vehicule = vehicule;
         this.description = description;
@@ -54,20 +54,20 @@ public class Trajet implements Serializable {
         this.volumeRest = volumeRest;
     }
 
-    public Trajet(Long id) {
+    public Trajet(int id) {
         this.id = id;
     }
 
-    public Trajet(Long id, String description) {
+    public Trajet(int id, String description) {
         this.id = id;
         this.description = description;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
